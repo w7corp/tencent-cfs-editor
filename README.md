@@ -4,7 +4,7 @@
 ## 简介
 
 解决cfs代码编辑问题,不需要单独买服务器挂载cfs管理
-
+[示例](https://vscode.i0358.cn)
 ## 快速开始
 
 ### 1. 安装
@@ -62,7 +62,7 @@ inputs:
           endpoints:
             - path: /
               method: ANY
-              enableCORS: true
+              enableCORS: true #必须允许跨域　来源地址是　https://we7coreteam.gitee.io
               function:
                 type: web
 ```
