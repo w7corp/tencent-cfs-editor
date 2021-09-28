@@ -1,17 +1,18 @@
 component: scf
-name: tencentcfseditor
+name: tencentcfseditora
 inputs:
-  name:  tencentcfseditor
+  name: tencentcfseditora
   region: ap-shanghai
   namespace: default
+  role: QCS_SCFExcuteRole
   # 指定 SCF 类型为 Web 类型
   type: web
   memorySize: 128 # 内存大小，单位MB
   timeout: 20 # 函数执行超时时间，单位秒
-  initTimeout: 3 # 初始化超时时间，单位秒
+  initTimeout: 15 # 初始化超时时间，单位秒
   environment: #  环境变量
     variables: #  环境变量对象
-      VSCODE_EDITOR_ROOT: /mnt　
+      VSCODE_EDITOR_ROOT: /mnt/　
       VSCODE_SDK_API_HTTPS: true #文件请求走https协议
   vpcConfig: # 私有网络配置
     vpcId: vpc-8ezuc5hk # 私有网络的Id
@@ -23,9 +24,8 @@ inputs:
       remoteMountDir: /
   image:
     imageType: personal
-    imageUrl: 'ccr.ccs.tencentyun.com/afan-public/mini-vscode:v1.0.1' # 请修改为指定镜像版本 URL
-    command:  # 容器启动命名
-    args:  # 容器启动参数
+    imageUrl: 'ccr.ccs.tencentyun.com/afan-public/mini-vscode:v1.0.1@sha256:9d3d15e37f9923548dfa98c921e2dd71a31087be53c127915fe16c24a72ad448' # 请修改为指定镜像版本 URL
+    #imageUrl: 'ccr.ccs.tencentyun.com/afan/afan:mini-vscode-1@sha256:52124e7dbf013963302be1e557a92334238c59e696c3e8c8c5781630100074f3' # 请修改为指定镜像版本 URL
   events:
     - apigw:
         parameters:
