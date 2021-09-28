@@ -1,7 +1,7 @@
 component: scf
-name: tencentcfseditora
+name: tencentcfseditor
 inputs:
-  name: tencentcfseditora
+  name: tencentcfseditor
   region: ap-shanghai
   namespace: default
   # 指定 SCF 类型为 Web 类型

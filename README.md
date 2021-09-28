@@ -3,7 +3,7 @@
 
 ## 简介
 
-laravel-starter 模板使用 Tencent SCF 组件及其触发器能力，方便的在腾讯云创建，配置和管理一个 laravel-starter 应用。
+解决cfs代码编辑问题,不需要单独买服务器挂载cfs管理
 
 ## 快速开始
 
@@ -27,9 +27,9 @@ cd tencent-cfs-editor
 > 修改如下标记　自定义处
 ``` yaml
 component: scf
-name: tencentcfseditora
+name: tencentcfseditor
 inputs:
-  name: tencentcfseditora
+  name: tencentcfseditor
   region: ap-shanghai
   namespace: default
   # 指定 SCF 类型为 Web 类型
