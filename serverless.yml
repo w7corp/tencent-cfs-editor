@@ -1,0 +1,41 @@
+component: scf
+name: tencentcfseditor
+inputs:
+  name:  tencentcfseditor
+  region: ap-shanghai
+  namespace: default
+  # 指定 SCF 类型为 Web 类型
+  type: web
+  memorySize: 128 # 内存大小，单位MB
+  timeout: 20 # 函数执行超时时间，单位秒
+  initTimeout: 3 # 初始化超时时间，单位秒
+  environment: #  环境变量
+    variables: #  环境变量对象
+      VSCODE_EDITOR_ROOT: /mnt　
+      VSCODE_SDK_API_HTTPS: true #文件请求走https协议
+  vpcConfig: # 私有网络配置
+    vpcId: vpc-8ezuc5hk # 私有网络的Id
+    subnetId: subnet-7yu9qe5v # 子网ID    
+  cfs: # cfs配置
+    - cfsId: cfs-eaplmrx7
+      mountInsId: cfs-eaplmrx7
+      localMountDir: /mnt/
+      remoteMountDir: /
+  image:
+    imageType: personal
+    imageUrl: 'ccr.ccs.tencentyun.com/afan-public/mini-vscode:v1.0.1' # 请修改为指定镜像版本 URL
+    command:  # 容器启动命名
+    args:  # 容器启动参数
+  events:
+    - apigw:
+        parameters:
+          protocols:
+            - http
+            - https
+          environment: release
+          endpoints:
+            - path: /
+              method: ANY
+              enableCORS: true
+              function:
+                type: web
