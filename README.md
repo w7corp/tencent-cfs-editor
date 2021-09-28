@@ -39,7 +39,7 @@ inputs:
   initTimeout: 15 # 
   environment: #  
     variables: # 
-      VSCODE_EDITOR_ROOT: /mnt/  # 不能用/mnt 必须 /mnt/    自定义
+      VSCODE_EDITOR_ROOT: /mnt/  # 绝对路径　1.不能用/mnt 必须 /mnt/  2.必须localMountDir的子目录下   自定义
       VSCODE_SDK_API_HTTPS: true   #文件请求走https协议
   vpcConfig: # 私有网络配置
     vpcId: vpc-8ezuc5hk # 私有网络的Id   自定义
@@ -47,7 +47,7 @@ inputs:
   cfs: # cfs配置
     - cfsId: cfs-eaplmrx7 #自定义
       mountInsId: cfs-eaplmrx7 #自定义
-      localMountDir: /mnt/
+      localMountDir: /mnt/ #自定义
       remoteMountDir: /
   image:
     imageType: personal
